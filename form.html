@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Dotazník – Cestování</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="form.html">Dotazník</a></li>
+            <li><a href="bootstrap.html">Galerie</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Podělte se o své plány</h1>
+    <form action="insert.php" method="post">
+        <label for="misto">Oblíbené místo v Japonsku:</label>
+        <select id="misto" name="misto">
+            <option value="tokyo">Tokio</option>
+            <option value="kyoto">Kjóto</option>
+            <option value="osaka">Ósaka</option>
+            <option value="hokkaido">Hokkaidó</option>
+            <option value="okinawa">Okinawa</option>
+        </select>
+
+        <button type="submit">Odeslat</button>
+    </form>
+</main>
+
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* ====== ZÁKLAD ====== */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.7;
+}
+
+/* ====== NAVBAR ====== */
+header {
+    background: #c70000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    margin: 0 25px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 18px 0;
+    display: inline-block;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #ffd54f;
+}
+
+/* ====== SECTION ====== */
+section {
+    border: 1px solid #e57373;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(199, 0, 0, 0.08);
+}
+
+/* ====== HLAVNÍ OBSAH ====== */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #c70000;
+    margin-top: 0;
+}
+h2 {
+    border-left: 6px solid #c70000;
+    padding-left: 12px;
+    color: #333;
+    margin-top: 40px;
+}
+
+/* ====== TABULKA ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background: #f0f0f0;
+    color: #c70000;
+    text-align: left;
+}
+
+/* ====== MÉDIA ====== */
+img, video, iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ====== FORMULÁŘ ====== */
+form {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+form label {
+    font-weight: 600;
+    margin-top: 15px;
+}
+form input, form select {
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+form button {
+    background: #c70000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+form button:hover {
+    background: #a00000;
+}
+
+/* ====== FOOTER ====== */
+footer {
+    background: #c70000;
+    color: #fff;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 60px;
+    position: static;
+    width: 100%;
+}
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ====== FULLSCREEN TOAST ====== */
+.fullscreen-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.fullscreen-toast .toast-body {
+    max-width: 700px;
+}
