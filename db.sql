@@ -1,6 +1,7 @@
+-- Table 'uzivatele' stores user information (id, name, email, location)
 CREATE TABLE uzivatele (
-   id INT AUTO_INCREMENT PRIMARY KEY,
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
    jmeno VARCHAR(100) NOT NULL,
-   email VARCHAR(100) NOT NULL,
-   barva VARCHAR(50) NOT NULL
+   email VARCHAR(100) NOT NULL UNIQUE,
+   misto VARCHAR(50) NOT NULL 
 );
