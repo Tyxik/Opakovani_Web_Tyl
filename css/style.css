@@ -158,5 +158,5 @@ footer p {
     z-index: 2000;
 }
 .fullscreen-toast .toast-body {
-    max-width: 700px;
+    max-width: 500px;
 }
