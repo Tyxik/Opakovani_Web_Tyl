@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root"; // MAMP má výchozí heslo "root"
+$password = "root"; 
 $dbname = "mojedb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
