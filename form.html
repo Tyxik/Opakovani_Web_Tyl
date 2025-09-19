@@ -20,17 +20,24 @@
 <main>
     <h1>Podělte se o své plány</h1>
     <form action="insert.php" method="post">
+        <label for="jmeno">Jméno:</label>
+        <input type="text" id="jmeno" name="jmeno" required>
+    
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+    
         <label for="misto">Oblíbené místo v Japonsku:</label>
-        <select id="misto" name="misto">
+        <select id="misto" name="misto" required>
             <option value="tokyo">Tokio</option>
             <option value="kyoto">Kjóto</option>
             <option value="osaka">Ósaka</option>
             <option value="hokkaido">Hokkaidó</option>
             <option value="okinawa">Okinawa</option>
         </select>
-
+    
         <button type="submit">Odeslat</button>
     </form>
+    
 </main>
 
 

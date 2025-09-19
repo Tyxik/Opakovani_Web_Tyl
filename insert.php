@@ -1,25 +1,26 @@
 <?php
 $servername = "localhost";
-$username = "root";
+$username = "root"; 
 $password = "root"; 
-$dbname = "mojedb";
+$dbname = "uzivatele"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-  die("Připojení selhalo: " . $conn->connect_error);
+    die("Chyba připojení: " . $conn->connect_error);
 }
 
 $jmeno = $_POST['jmeno'];
 $email = $_POST['email'];
-$barva = $_POST['barva'];
+$barva = $_POST['misto'];
 
 $sql = "INSERT INTO uzivatele (jmeno, email, barva) VALUES ('$jmeno', '$email', '$barva')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "<p>✅ Data byla uložena. <a href='form.html'>Zpět na formulář</a></p>";
+    header("Location: index.html");
+    exit();
 } else {
-  echo "❌ Chyba: " . $conn->error;
+    echo "Chyba: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
