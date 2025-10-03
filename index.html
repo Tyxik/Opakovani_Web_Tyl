@@ -39,17 +39,50 @@
     <img src="img/tokyo.jpg" alt="Tokio v noci">
     <img src="img/kyoto.jpg" alt="Chrám v Kjótu">
 
-    <h2>Krátká video ukázka
+    <!-- Nová sekce s japonskou motivací -->
+    <section style="margin-top: 40px; padding: 20px; background: #f0f0f0; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
+        <h2>Motivace z Japonska</h2>
+        <p id="japonskyText" style="font-size: 1.2rem; font-style: italic; color: #c70000;">
+            „I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’
+        </p>
+        <button id="zmenBtn" style="background-color: #c70000; color: white; border: none; padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 5px; margin-top: 15px; transition: background-color 0.3s ease;">
+            Změnit citát
+        </button>
+    </section>
+
+    <h2>Krátká video ukázka</h2>
     <video controls>
         <source src="video/japan.mp4" type="video/mp4">
         Váš prohlížeč nepodporuje video.
     </video>
-
-   
+  
+    <div id="scrollPosition" style="position: fixed; top: 10px; right: 10px; background: #c70000; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; z-index: 10000;">
+        Scroll Y: 0
+      </div>
 </main>
-
+<div id="scrollInfo">Scroll: 0 px</div>
 <footer>
     <p>&copy; 2025 Cestování po Japonsku</p>
 </footer>
+
+<script>
+    const citaty = [
+        "„I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’",
+        "„Srdce, které miluje, nikdy neostará.“ – Japonské přísloví",
+        "„Není důležité, jak pomalu jdete, pokud nezastavíte.“ – Konfucius",
+        "„Krása je v oku pozorovatele.“ – Japonské přísloví"
+    ];
+
+    const btn = document.getElementById('zmenBtn');
+    const textElem = document.getElementById('japonskyText');
+    let index = 0;
+
+    btn.addEventListener('click', () => {
+        index = (index + 1) % citaty.length;
+        textElem.innerText = citaty[index];
+    });
+</script>
+
+
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -160,3 +159,64 @@ footer p {
 .fullscreen-toast .toast-body {
     max-width: 500px;
 }
+
+/* ====== TOAST ALERT ====== */
+.toast-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #c70000;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 1.2rem;
+    z-index: 3000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.toast-alert.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ====== Motivace z Japonska ====== */
+section.motivace {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+section.motivace h2 {
+    color: #c70000;
+}
+
+section.motivace p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #c70000;
+}
+
+section.motivace button {
+    background-color: #c70000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+section.motivace button:hover {
+    background-color: #a00000;
+}
+

@@ -5,6 +5,7 @@
     <title>Dotazník – Cestování</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+   
 </head>
 <body>
 <header>
@@ -19,7 +20,7 @@
 
 <main>
     <h1>Podělte se o své plány</h1>
-    <form action="insert.php" method="post">
+    <form id="dotaznikForm" action="insert.php" method="post">
         <label for="jmeno">Jméno:</label>
         <input type="text" id="jmeno" name="jmeno" required>
     
@@ -37,9 +38,42 @@
     
         <button type="submit">Odeslat</button>
     </form>
-    
+
+    <h2>Fotografie z Japonska</h2>
+    <img id="foto" src="img/tokyo.jpg" alt="Tokio" style="width:300px;cursor:pointer;">
 </main>
 
+<script>
+   
+    function showToast(message) {
+     
+      let toast = document.querySelector('.toast-alert');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast-alert';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add('show');
+  
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5000);
+    }
+  
+    document.getElementById('dotaznikForm').addEventListener('submit', function(e) {
+      e.preventDefault();  
+      const jmeno = document.getElementById('jmeno').value.trim();
+      if(jmeno) {
+        showToast('Děkujeme, ' + jmeno + ', za vyplnění dotazníku!');
+      } else {
+        showToast('Prosím, vyplňte jméno.');
+      }
+      
+    });
+  </script>
+  
 
 </body>
 </html>
