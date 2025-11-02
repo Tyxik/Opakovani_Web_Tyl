@@ -1,55 +1,93 @@
+/*
+   ZÁKLADNÍ NASTAVENÍ
+ */
 body {
   margin: 0;
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  background: #f5f5f5;
+  background: #f8f8f8;
   color: #333;
   line-height: 1.7;
 }
 
-/* NAVBAR */
+/*
+    NAVIGACE
+ */
 header {
   background: #c70000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 8px 0;
 }
-nav ul {
+
+nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+nav ul {
   list-style: none;
+  display: flex;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
-nav li {
-  margin: 0 25px;
-}
+
 nav a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  padding: 18px 0;
-  display: inline-block;
-  transition: color 0.3s;
+  font-size: 1rem;
+  transition: 0.3s;
+  padding-left: 20px;  
 }
-nav a:hover {
+
+nav a:hover,
+nav a.active {
   color: #ffd54f;
 }
 
+/* Logo v navigaci */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 30px;
+}
 
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* 
+    HLAVNÍ OBSAH
+ */
 main {
   max-width: 1100px;
   margin: 40px auto;
   background: #fff;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.08);
 }
+
 h1 {
   text-align: center;
   color: #c70000;
   margin-top: 0;
 }
+
 h2 {
   border-left: 6px solid #c70000;
   padding-left: 12px;
@@ -57,7 +95,9 @@ h2 {
   margin-top: 40px;
 }
 
-
+/* 
+   TABULKA MĚST
+ */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -68,23 +108,31 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 th {
-  background: #f0f0f0;
+  background: #f7f7f7;
   color: #c70000;
   text-align: left;
 }
 
-
-img, video {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+/* 
+   TLAČÍTKA
+ */
+.btn, form button, .motivace button {
+  background-color: #c70000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn:hover, form button:hover, .motivace button:hover {
+  background-color: #a00000;
 }
 
-
+/* 
+    FORMULÁŘ
+ */
 form {
   max-width: 450px;
   margin: 0 auto;
@@ -95,33 +143,45 @@ form label {
   font-weight: 600;
   margin-top: 15px;
 }
-form input, form select, form textarea {
+form input,
+form select,
+form textarea {
   padding: 10px;
   margin-top: 6px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
 }
-form button {
-  background: #c70000;
-  color: #fff;
-  border: none;
-  padding: 12px;
+
+/* 
+   GALERIE
+ */
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
   margin-top: 20px;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
 }
-form button:hover {
-  background: #a00000;
+.gallery img {
+  width: 45%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.03);
 }
 
-
+/* 
+    MOTIVAČNÍ SEKCE
+ */
 .motivace {
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: 50px;
+  padding: 25px;
   background: #f0f0f0;
   border-radius: 10px;
   max-width: 600px;
@@ -135,111 +195,10 @@ form button:hover {
   color: #c70000;
   transition: opacity 0.4s ease;
 }
-.motivace button {
-  background-color: #c70000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 15px;
-  transition: background-color 0.3s ease;
-}
-.motivace button:hover {
-  background-color: #a00000;
-}
 
-
-.btn {
-  background-color: #c70000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-.btn:hover {
-  background-color: #a00000;
-}
-
-/* ====== SCROLL INFO ====== */
-#scrollPosition {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: #c70000;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  z-index: 1000;
-  font-size: 0.9rem;
-}
-
-
-footer {
-  background: #c70000;
-  color: #fff;
-  text-align: center;
-  padding: 25px 10px;
-  margin-top: 60px;
-}
-footer p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-body {
-  background: #f8f8f8;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: #333;
-}
-
-/* NAVIGACE */
-header {
-  background: #c70000;
-  padding: 10px 0;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover, nav a.active {
-  text-decoration: underline;
-}
-
-/* GALERIE */
-.gallery-img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
-.gallery-img:hover {
-  transform: scale(1.03);
-}
-main p {
-  text-align: center;
-  margin-top: 5px;
-  color: #c70000;
-  font-weight: bold;
-}
-
-/* UVÍTACÍ BANNER */
+/* 
+    BANNER (UVÍTACÍ)
+ */
 .banner {
   position: fixed;
   inset: 0;
@@ -257,6 +216,7 @@ main p {
   text-align: center;
   border-radius: 12px;
   max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 .banner-box button {
   background: white;
@@ -266,16 +226,154 @@ main p {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 15px;
+  transition: background 0.3s;
 }
 .banner-box button:hover {
   background: #ffe0e0;
 }
 
-/* PATIČKA */
+/* 
+    SCROLL INFO
+ */
+#scrollPosition {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #c70000;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+
+/*  
+    PATIČKA
+ */
+footer {
+  background: #c70000;
+  color: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 60px;
+}
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+  line-height: 1.7;
+}
+
+/*  NAVIGACE  */
+header {
+  background: #c70000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  gap: 30px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover, nav a.active {
+  color: #ffd54f;
+}
+
+/*  GALERIE  */
+.gallery {
+  text-align: center;
+}
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.04);
+}
+.gallery p {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #c70000;
+}
+
+/*  UVÍTACÍ BANNER  */
+.banner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 2000;
+}
+.banner.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.banner-box {
+  background: #c70000;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.banner-box button {
+  background: white;
+  color: #c70000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.banner-box button:hover {
+  background: #ffe0e0;
+}
+
+/*  PATIČKA  */
 footer {
   background: #c70000;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
+  font-size: 0.95rem;
   margin-top: 40px;
+}
+
+/* VIDEO  */
+.japan-video {
+  display: block;
+  width: 80%;           
+  max-width: 700px;     
+  margin: 20px auto;    
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
