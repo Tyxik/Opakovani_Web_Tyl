@@ -2,78 +2,122 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Dotazník – Cestování</title>
+    <title>Přihláška na zájezd do Japonska</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-   
 </head>
 <body>
 <header>
     <nav>
         <ul>
             <li><a href="index.html">Domů</a></li>
-            <li><a href="form.html">Dotazník</a></li>
+            <li><a href="form.html" class="active">Přihláška</a></li>
             <li><a href="bootstrap.html">Galerie</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <h1>Podělte se o své plány</h1>
-    <form id="dotaznikForm" action="insert.php" method="post">
-        <label for="jmeno">Jméno:</label>
-        <input type="text" id="jmeno" name="jmeno" required>
-    
+    <h1>Přihláška na zájezd do Japonska</h1>
+    <p style="text-align:center; max-width:600px; margin:auto;">
+        Vyplňte prosím přihlášku na zájezd a zažijte kouzlo Země vycházejícího slunce!  
+        Po odeslání se vám zobrazí potvrzení.
+    </p>
+
+    <form id="prihlaskaForm" action="insert.php" method="post">
+        <label for="jmeno">Jméno a příjmení:</label>
+        <input type="text" id="jmeno" name="jmeno" placeholder="Např. Jan Novák" required>
+
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-    
-        <label for="misto">Oblíbené místo v Japonsku:</label>
+        <input type="email" id="email" name="email" placeholder="např. jan.novak@email.cz" required>
+
+        <label for="misto">Vyberte destinaci:</label>
         <select id="misto" name="misto" required>
-            <option value="tokyo">Tokio</option>
-            <option value="kyoto">Kjóto</option>
-            <option value="osaka">Ósaka</option>
-            <option value="hokkaido">Hokkaidó</option>
-            <option value="okinawa">Okinawa</option>
+            <option value="">-- Vyberte --</option>
+            <option value="tokyo">Tokio – moderní metropole</option>
+            <option value="kyoto">Kjóto – chrámy a historie</option>
+            <option value="osaka">Ósaka – město jídla</option>
+            <option value="hokkaido">Hokkaidó – příroda a klid</option>
+            <option value="okinawa">Okinawa – tropický ráj</option>
         </select>
-    
-        <button type="submit">Odeslat</button>
+
+        <label for="zprava">Vaše poznámky / přání:</label>
+        <textarea id="zprava" name="zprava" rows="4" placeholder="Napište nám své preference..."></textarea>
+
+        <button type="submit">Odeslat přihlášku</button>
     </form>
 
-    <h2>Fotografie z Japonska</h2>
-    <img id="foto" src="img/tokyo.jpg" alt="Tokio" style="width:300px;cursor:pointer;">
+    <div style="text-align:center; margin-top:40px;">
+        <h2>Vaše vybraná destinace</h2>
+        <img id="foto" src="img/japan-default.jpg" alt="Zájezd do Japonska" style="width:320px;border-radius:8px;transition:opacity 0.4s ease;">
+    </div>
 </main>
 
+<div class="toast-alert" id="toast"></div>
+
+<footer>
+    <p>&copy; 2025 Cestování po Japonsku</p>
+</footer>
+
 <script>
-   
-    function showToast(message) {
-     
-      let toast = document.querySelector('.toast-alert');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.className = 'toast-alert';
-        document.body.appendChild(toast);
-      }
-      toast.textContent = message;
-      toast.classList.add('show');
-  
-      
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 5000);
+// Toast oznámení
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+// Ověření formuláře
+document.getElementById('prihlaskaForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const jmeno = document.getElementById('jmeno').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (jmeno.length < 3) {
+    showToast("Jméno musí mít alespoň 3 znaky!");
+    return;
+  }
+  if (!email.includes('@') || !email.includes('.')) {
+    showToast("Zadejte platný e-mail!");
+    return;
+  }
+
+  showToast("Děkujeme, " + jmeno + "! Vaše přihláška byla odeslána.");
+  this.reset();
+});
+
+
+const select = document.getElementById('misto');
+const foto = document.getElementById('foto');
+
+select.addEventListener('change', () => {
+  const mesto = select.value;
+  foto.style.opacity = 0;
+  setTimeout(() => {
+    switch (mesto) {
+      case 'tokyo':
+        foto.src = 'img/tokyo.jpg';
+        break;
+      case 'kyoto':
+        foto.src = 'img/kyoto.jpg';
+        break;
+      case 'osaka':
+        foto.src = 'img/osaka.jpg';
+        break;
+      case 'hokkaido':
+        foto.src = 'img/hokkaido.jpg';
+        break;
+      case 'okinawa':
+        foto.src = 'img/okinawa.jpg';
+        break;
+      default:
+        foto.src = 'img/japan-default.jpg';
     }
-  
-    document.getElementById('dotaznikForm').addEventListener('submit', function(e) {
-      e.preventDefault();  
-      const jmeno = document.getElementById('jmeno').value.trim();
-      if(jmeno) {
-        showToast('Děkujeme, ' + jmeno + ', za vyplnění dotazníku!');
-      } else {
-        showToast('Prosím, vyplňte jméno.');
-      }
-      
-    });
-  </script>
-  
+    foto.style.opacity = 1;
+  }, 300);
+});
+</script>
 
 </body>
 </html>

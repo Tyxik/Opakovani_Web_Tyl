@@ -1,222 +1,281 @@
 body {
-    margin: 0;
-    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    line-height: 1.7;
+  margin: 0;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.7;
 }
 
-/* ====== NAVBAR ====== */
+/* NAVBAR */
 header {
-    background: #c70000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background: #c70000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 nav li {
-    margin: 0 25px;
+  margin: 0 25px;
 }
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 18px 0;
-    display: inline-block;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 18px 0;
+  display: inline-block;
+  transition: color 0.3s;
 }
 nav a:hover {
-    color: #ffd54f;
+  color: #ffd54f;
 }
 
-/* ====== SECTION ====== */
-section {
-    border: 1px solid #e57373;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background: #fff;
-    box-shadow: 0 0 4px rgba(199, 0, 0, 0.08);
-}
 
-/* ====== HLAVNÍ OBSAH ====== */
 main {
-    max-width: 1100px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 h1 {
-    text-align: center;
-    color: #c70000;
-    margin-top: 0;
+  text-align: center;
+  color: #c70000;
+  margin-top: 0;
 }
 h2 {
-    border-left: 6px solid #c70000;
-    padding-left: 12px;
-    color: #333;
-    margin-top: 40px;
+  border-left: 6px solid #c70000;
+  padding-left: 12px;
+  color: #333;
+  margin-top: 40px;
 }
 
-/* ====== TABULKA ====== */
+
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 th, td {
-    padding: 14px 12px;
-    border-bottom: 1px solid #ddd;
+  padding: 14px 12px;
+  border-bottom: 1px solid #ddd;
 }
 th {
-    background: #f0f0f0;
-    color: #c70000;
-    text-align: left;
+  background: #f0f0f0;
+  color: #c70000;
+  text-align: left;
 }
 
-/* ====== MÉDIA ====== */
-img, video, iframe {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-/* ====== FORMULÁŘ ====== */
+
 form {
-    max-width: 450px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 form label {
-    font-weight: 600;
-    margin-top: 15px;
+  font-weight: 600;
+  margin-top: 15px;
 }
-form input, form select {
-    padding: 10px;
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+form input, form select, form textarea {
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 form button {
-    background: #c70000;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+  background: #c70000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 form button:hover {
-    background: #a00000;
+  background: #a00000;
 }
 
-/* ====== FOOTER ====== */
+
+.motivace {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.motivace p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #c70000;
+  transition: opacity 0.4s ease;
+}
+.motivace button {
+  background-color: #c70000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+.motivace button:hover {
+  background-color: #a00000;
+}
+
+
+.btn {
+  background-color: #c70000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #a00000;
+}
+
+/* ====== SCROLL INFO ====== */
+#scrollPosition {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #c70000;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+
+
 footer {
-    background: #c70000;
-    color: #fff;
-    text-align: center;
-    padding: 25px 10px;
-    margin-top: 60px;
-    position: static;
-    width: 100%;
+  background: #c70000;
+  color: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 60px;
 }
 footer p {
-    margin: 0;
-    font-size: 0.95rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+body {
+  background: #f8f8f8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #333;
 }
 
-/* ====== bootstrap znameni====== */
-.fullscreen-toast {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+/* NAVIGACE */
+header {
+  background: #c70000;
+  padding: 10px 0;
 }
-.fullscreen-toast .toast-body {
-    max-width: 500px;
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
-
-/* ====== TOAST ALERT ====== */
-.toast-alert {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #c70000;
-    color: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    font-size: 1.2rem;
-    z-index: 3000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
-.toast-alert.show {
-    opacity: 1;
-    pointer-events: auto;
+nav a:hover, nav a.active {
+  text-decoration: underline;
 }
 
-/* ====== Motivace z Japonska ====== */
-section.motivace {
-    margin-top: 40px;
-    padding: 20px;
-    background: #f0f0f0;
-    border-radius: 10px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+/* GALERIE */
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+main p {
+  text-align: center;
+  margin-top: 5px;
+  color: #c70000;
+  font-weight: bold;
 }
 
-section.motivace h2 {
-    color: #c70000;
+/* UVÍTACÍ BANNER */
+.banner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+  z-index: 1000;
+}
+.banner-box {
+  background: #c70000;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 400px;
+}
+.banner-box button {
+  background: white;
+  color: #c70000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.banner-box button:hover {
+  background: #ffe0e0;
 }
 
-section.motivace p {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #c70000;
+/* PATIČKA */
+footer {
+  background: #c70000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
 }
-
-section.motivace button {
-    background-color: #c70000;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
-}
-
-section.motivace button:hover {
-    background-color: #a00000;
-}
-

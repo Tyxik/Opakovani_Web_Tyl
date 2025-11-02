@@ -1,88 +1,198 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <title>Cestování po Japonsku</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <meta charset="UTF-8">
+  <title>Cestování po Japonsku</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
+
 <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Domů</a></li>
-            <li><a href="form.html">Dotazník</a></li>
-            <li><a href="bootstrap.html">Galerie</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Domů</a></li>
+      <li><a href="form.html">Přihláška</a></li>
+      <li><a href="bootstrap.html">Galerie</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
-    <h1>Objevte krásy Japonska</h1>
+  <h1>Objevte krásy Japonska</h1>
 
-    <section>
-        <h2>Proč Japonsko?</h2>
-        <p>
-            Japonsko je země, kde se setkává tradice s modernou. Od majestátních hor a klidných svatyní po rušné ulice a futuristické technologie – každý si zde najde něco, co ho okouzlí.
-        </p>
-    </section>
+  <section>
+    <h2>Proč Japonsko?</h2>
+    <p>
+      Japonsko je země, kde se setkává tradice s modernou. Od majestátních hor a klidných svatyní po rušné ulice a futuristické technologie – každý si zde najde něco, co ho okouzlí.
+    </p>
+  </section>
 
-    <h2>Top 3 města k návštěvě</h2>
-    <table>
-        <tr><th>Město</th><th>Zajímavost</th></tr>
-        <tr><td>Tokio</td><td>Mrakodrapy, anime kultura a špičkové sushi.</td></tr>
-        <tr><td>Kjóto</td><td>Tradiční chrámy a slavné třešňové květy.</td></tr>
-        <tr><td>Ósaka</td><td>Skvělé jídlo a noční život.</td></tr>
-    </table>
+  <h2>Top 3 města k návštěvě</h2>
+  <table id="mestaTabulka">
+    <tr><th>Město</th><th>Zajímavost</th></tr>
+    <tr><td>Tokio</td><td>Mrakodrapy, anime kultura a špičkové sushi.</td></tr>
+    <tr><td>Kjóto</td><td>Tradiční chrámy a slavné třešňové květy.</td></tr>
+    <tr><td>Ósaka</td><td>Skvělé jídlo a noční život.</td></tr>
+  </table>
 
-    <h2>Fotografie z cest</h2>
-    <img src="img/tokyo.jpg" alt="Tokio v noci">
-    <img src="img/kyoto.jpg" alt="Chrám v Kjótu">
+  <div style="text-align:center; margin-top:20px;">
+    <button id="pridatMesto" class="btn">Přidat město</button>
+  </div>
 
-    <!-- Nová sekce s japonskou motivací -->
-    <section style="margin-top: 40px; padding: 20px; background: #f0f0f0; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
-        <h2>Motivace z Japonska</h2>
-        <p id="japonskyText" style="font-size: 1.2rem; font-style: italic; color: #c70000;">
-            „I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’
-        </p>
-        <button id="zmenBtn" style="background-color: #c70000; color: white; border: none; padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 5px; margin-top: 15px; transition: background-color 0.3s ease;">
-            Změnit citát
-        </button>
-    </section>
+  <h2>Fotografie z cest</h2>
+  <img src="img/tokyo.jpg" alt="Tokio v noci" class="fade">
+  <img src="img/kyoto.jpg" alt="Chrám v Kjótu" class="fade">
 
-    <h2>Krátká video ukázka</h2>
-    <video controls>
-        <source src="video/japan.mp4" type="video/mp4">
-        Váš prohlížeč nepodporuje video.
-    </video>
   
-    <div id="scrollPosition" style="position: fixed; top: 10px; right: 10px; background: #c70000; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; z-index: 10000;">
-        Scroll Y: 0
-      </div>
+  <section class="motivace">
+    <h2>Motivace z Japonska</h2>
+    <p id="japonskyText">
+      „I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’
+    </p>
+    <button id="zmenBtn">Změnit citát</button>
+  </section>
+
+
+  <section>
+    <h2>Plánujete cestu do Japonska?</h2>
+    <p style="text-align:center;">Vyplňte krátký dotazník a zjistěte, jaké město se k vám nejvíce hodí!</p>
+
+    <form onsubmit="return kontrolaFormulare()">
+      <label for="jmeno">Jméno:</label>
+      <input type="text" id="jmeno" placeholder="Vaše jméno">
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="např. jmeno@email.cz">
+
+      <label for="zajem">Co vás v Japonsku nejvíce láká?</label>
+      <select id="zajem">
+        <option value="">-- Vyberte možnost --</option>
+        <option value="tradice">Tradiční kultura a chrámy</option>
+        <option value="moderni">Moderní města a technologie</option>
+        <option value="jidlo">Japonská kuchyně</option>
+        <option value="priroda">Příroda a hory</option>
+      </select>
+
+      <label for="zprava">Krátká zpráva:</label>
+      <textarea id="zprava" rows="4" placeholder="Vaše očekávání nebo otázky..."></textarea>
+
+      <button type="submit">Odeslat dotazník</button>
+    </form>
+  </section>
+
+  <h2>Krátká video ukázka</h2>
+  <video controls>
+    <source src="video/japan.mp4" type="video/mp4">
+    Váš prohlížeč nepodporuje video.
+  </video>
+
+ 
+  <div id="scrollPosition">Scroll Y: 0</div>
 </main>
-<div id="scrollInfo">Scroll: 0 px</div>
+
 <footer>
-    <p>&copy; 2025 Cestování po Japonsku</p>
+  <p>&copy; 2025 Cestování po Japonsku</p>
 </footer>
 
 <script>
-    const citaty = [
-        "„I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’",
-        "„Srdce, které miluje, nikdy neostará.“ – Japonské přísloví",
-        "„Není důležité, jak pomalu jdete, pokud nezastavíte.“ – Konfucius",
-        "„Krása je v oku pozorovatele.“ – Japonské přísloví"
-    ];
+  
+  const citaty = [
+    "„I cesta dlouhá tisíc mil začíná prvním krokem.“ – Lao-c’",
+    "„Srdce, které miluje, nikdy neostará.“ – Japonské přísloví",
+    "„Není důležité, jak pomalu jdete, pokud nezastavíte.“ – Konfucius",
+    "„Krása je v oku pozorovatele.“ – Japonské přísloví"
+  ];
 
-    const btn = document.getElementById('zmenBtn');
-    const textElem = document.getElementById('japonskyText');
-    let index = 0;
+  const btn = document.getElementById('zmenBtn');
+  const textElem = document.getElementById('japonskyText');
+  let index = 0;
 
-    btn.addEventListener('click', () => {
-        index = (index + 1) % citaty.length;
-        textElem.innerText = citaty[index];
+  btn.addEventListener('click', () => {
+    index = (index + 1) % citaty.length;
+    textElem.style.opacity = 0;
+    setTimeout(() => {
+      textElem.innerText = citaty[index];
+      textElem.style.opacity = 1;
+    }, 400);
+  });
+
+ 
+  function kontrolaFormulare() {
+    let jmeno = document.getElementById("jmeno").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let zajem = document.getElementById("zajem").value;
+    let zprava = document.getElementById("zprava").value.trim();
+
+    if (jmeno === "" || email === "" || zajem === "" || zprava === "") {
+      alert("Vyplňte prosím všechna pole formuláře.");
+      return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      alert("Zadejte platný e-mail!");
+      return false;
+    }
+
+    if (zprava.length < 10) {
+      alert("Zpráva musí mít alespoň 10 znaků.");
+      return false;
+    }
+
+    alert(`Děkujeme, ${jmeno}! Váš dotazník byl úspěšně odeslán.`);
+    return false;
+  }
+
+  
+const mesta = [
+  { nazev: "Hirošima", zajimavost: "Město míru a památník historie." },
+  { nazev: "Nara", zajimavost: "Starobylé chrámy a volně se pohybující jeleni." },
+  { nazev: "Nagano", zajimavost: "Zimní ráj a slavné opice v horkých pramenech." },
+  { nazev: "Fukuoka", zajimavost: "Moderní přístavní město s výbornou ramen polévkou." },
+  { nazev: "Sapporo", zajimavost: "Zimní festivaly a výborné pivo Sapporo." }
+];
+
+let indexMesta = 0;
+
+document.getElementById("pridatMesto").addEventListener("click", () => {
+  const tabulka = document.getElementById("mestaTabulka");
+
+  if (indexMesta < mesta.length) {
+    const nove = tabulka.insertRow(-1);
+    const mesto = nove.insertCell(0);
+    const zajimavost = nove.insertCell(1);
+
+    mesto.textContent = mesta[indexMesta].nazev;
+    zajimavost.textContent = mesta[indexMesta].zajimavost;
+    indexMesta++;
+  } else {
+    alert("Všechna města už byla přidána!");
+  }
+});
+
+
+  window.addEventListener("scroll", () => {
+    document.getElementById("scrollPosition").innerText = "Scroll Y: " + Math.round(window.scrollY);
+    const header = document.querySelector("header");
+    if (window.scrollY > 100) {
+      header.style.background = "#a00000";
+    } else {
+      header.style.background = "#c70000";
+    }
+  });
+
+
+  const obrazky = document.querySelectorAll("img");
+  obrazky.forEach(img => {
+    img.addEventListener("mouseenter", () => {
+      img.style.transform = "scale(1.05)";
+      img.style.transition = "transform 0.3s";
     });
+    img.addEventListener("mouseleave", () => {
+      img.style.transform = "scale(1)";
+    });
+  });
 </script>
-
 
 </body>
 </html>
